@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>歌詞頁</title>
+</head>
+<body>
+  <h1 id="title"></h1>
+  <iframe id="youtube" width="560" height="315" frameborder="0" allowfullscreen></iframe>
+  <pre id="lyrics"></pre>
+
+  <script src="songs.js"></script>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const slug = params.get('slug');
+    const song = songs.find(s => s.slug === slug);
+
+    if (song) {
+      document.getElementById("title").textContent = song.title;
+      document.getElementById("lyrics").textContent = song.lyrics;
+      document.getElementById("youtube").src = song.youtube;
+    }
+  </script>
+</body>
+</html>
