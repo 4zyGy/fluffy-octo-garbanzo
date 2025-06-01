@@ -1,1 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>所有歌曲</title>
+</head>
+<body>
+  <h1>所有歌曲</h1>
+  <div id="song-list"></div>
+
+  <script src="songs.js"></script>
+  <script>
+    songs.forEach(song => {
+      const a = document.createElement("a");
+      a.href = `song.html?slug=${song.slug}`;
+      a.textContent = song.title;
+      const br = document.createElement("br");
+      document.getElementById("song-list").append(a, br);
+    });
+  </script>
+</body>
+</html>
 
